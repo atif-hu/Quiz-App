@@ -1,15 +1,49 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./quiz.css"  rel="stylesheet"></link>
-    <title>Quiz App</title>
+    <title>Document</title>
 </head>
 <body>
-    
-    
+    <div class="container">
+        <div class="game">
+            <div class="content">
+                <h1 class="question">
+                    where is taj mahal?
+                </h1>
+                <div class="answers">
+                    <div class="answer">
+                        <input name="ans" type="radio"  id="answer1" value="false">
+                        <label for="answer1">Mumbai</label>
+                    </div>
+                    <div class="answer">
+                        <input name="ans" type="radio"  id="answer2" value="false">
+                        <label for="answer2">Jehanabad</label>
+                    </div>
+                    <div class="answer">
+                        <input name="ans" type="radio"  id="answer3" value="false">
+                        <label for="answer3">Mumbai</label>
+                    </div>
+                    <div class="answer">
+                        <input name="ans" type="radio"  id="answer4" value="false">
+                        <label for="answer4">Patna</label>
+                    </div>
+                    </div>
+                </div>
+                <submit class="submit">Submit</submit>
+            </div>
+            
+
+        <div class="result">
+            <h1>Congratulations</h1>
+            <h3 class="correct">Correct answers: 0</h3>
+            <h3 class="wrong">Wrong answers: 3</h3>
+            <h2 class="score"> Score:30</h2>
+            <button class="playBtn">Play again</button>
+        </div>
+    </div>
     <script src="./quiz.js"></script>
 </body>
 </html>
