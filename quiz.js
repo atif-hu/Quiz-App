@@ -31,5 +31,26 @@ const data=[
             {answer:"Balochistan", isCorrect:false},
 
         ],
-    },
+    }
 ]
+
+const gameScreen=document.querySelector('.game');
+const gameResult=document.querySelector('.result');
+const question=document.querySelector('.question');
+const answersContainer=document.querySelector('.answersContainer');
+const submit=document.querySelector('.submit');
+const play=document.querySelector('.play');
+
+let quesInd=0;
+let correctCount=0;
+let wrongCount=0;
+let total=0;
+let selectedAnswers;
+
+const showQuestion=(quesInd)=>{
+    question.textContent=data[quesInd].question;
+}
+showQuestion(quesInd);
+
+    
+
