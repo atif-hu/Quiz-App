@@ -37,7 +37,7 @@ const data=[
 const gameScreen=document.querySelector('.game');
 const gameResult=document.querySelector('.result');
 const question=document.querySelector('.question');
-const answersContainer=document.querySelector('.answersContainer');
+const answersContainer=document.querySelector('.answers');
 const submit=document.querySelector('.submit');
 const play=document.querySelector('.play');
 
@@ -49,8 +49,14 @@ let selectedAnswers;
 
 const showQuestion=(quesInd)=>{
     question.textContent=data[quesInd].question;
-}
+    answersContainer.innerHTML=data[quesInd].answers.map((item,index)=>
+    `<div class="answer">
+        <input name="ans" type="radio"  id=${index} value=${item.isCorrect}/>
+        <label for=${index}>${item.answer}</label>
+    </div>`
+    ).join("");
+};
 showQuestion(quesInd);
 
-    
+
 
