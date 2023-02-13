@@ -48,6 +48,7 @@ let total=0;
 let selectedAnswers;
 
 const showQuestion=(quesInd)=>{
+    selectedAnswers=null
     question.textContent=data[quesInd].question;
     answersContainer.innerHTML=data[quesInd].answers.map((item,index)=>
     `<div class="answer">
@@ -62,19 +63,26 @@ const selectAnswer=()=>{
     answersContainer.querySelectorAll("input").forEach(ele=>{
         ele.addEventListener("click",(e)=>{
             selectedAnswers=e.target.value;
-            console.log(typeof(selectedAnswers))
         })
     })
 }
 
 const submitAnswer=()=>{
     submit.addEventListener("click",(e)=>{
-        selectedAnswers==="true/"?correctCount++:wrongCount++;
-        ++quesInd;
-        showQuestion(quesInd);
-        console.log(correctCount,wrongCount)
+        if(selectedAnswers!=null){
+            selectedAnswers==="true/"?correctCount++:wrongCount++;
+            ++quesInd;
+            quesInd>=data.length?showResult(correctCount,wrongCount):showQuestion(quesInd);
+        }
+        else alert("Select any option");
     }
 )}
+
+const showResult=(correctCount,wrongCount)=>{
+    console.log(correctCount,wrongCount)
+    gameResult.style.display="block";
+    gameScreen.style.display="none";
+}
 
 showQuestion(quesInd);
 submitAnswer()
