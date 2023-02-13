@@ -55,8 +55,26 @@ const showQuestion=(quesInd)=>{
         <label for=${index}>${item.answer}</label>
     </div>`
     ).join("");
+    selectAnswer();
 };
+
+const selectAnswer=()=>{
+    answersContainer.querySelectorAll("input").forEach(ele=>{
+        ele.addEventListener("click",(e)=>{
+            selectedAnswers=e.target.value;
+            console.log(typeof(selectedAnswers))
+        })
+    })
+}
+
+const submitAnswer=()=>{
+    submit.addEventListener("click",(e)=>{
+        selectedAnswers==="true/"?correctCount++:wrongCount++;
+        ++quesInd;
+        showQuestion(quesInd);
+        console.log(correctCount,wrongCount)
+    }
+)}
+
 showQuestion(quesInd);
-
-
-
+submitAnswer()
