@@ -87,6 +87,16 @@ const showResult=()=>{
     gameResult.querySelector(".wrong").textContent=`Wrong Answers: ${wrongCount}`;
     gameResult.querySelector(".score").textContent=`Score : ${correctCount*10}`;
 
+    gameResult.querySelector(".playBtn").addEventListener("click",()=>{
+        quesInd=0;
+        correctCount=0;
+        wrongCount=0;
+        total=0;
+        gameResult.style.display="none";
+        gameScreen.style.display="block";
+        showQuestion(quesInd);
+    })
+
 }
 
 showQuestion(quesInd);
