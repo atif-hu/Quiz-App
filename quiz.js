@@ -48,6 +48,7 @@ let total=0;
 let selectedAnswers;
 
 const showQuestion=(quesInd)=>{
+    if(quesInd===data.length) return showResult();
     selectedAnswers=null
     question.textContent=data[quesInd].question;
     answersContainer.innerHTML=data[quesInd].answers.map((item,index)=>
@@ -71,17 +72,21 @@ const submitAnswer=()=>{
     submit.addEventListener("click",(e)=>{
         if(selectedAnswers!=null){
             selectedAnswers==="true/"?correctCount++:wrongCount++;
-            ++quesInd;
-            quesInd>=data.length?showResult(correctCount,wrongCount):showQuestion(quesInd);
+            quesInd++;
+            showQuestion(quesInd);
         }
         else alert("Select any option");
     }
 )}
 
-const showResult=(correctCount,wrongCount)=>{
-    console.log(correctCount,wrongCount)
+const showResult=()=>{
     gameResult.style.display="block";
     gameScreen.style.display="none";
+    console.log(correctCount,wrongCount);
+    gameResult.querySelector(".correct").textContent=`Correct Answers: ${correctCount}`;
+    gameResult.querySelector(".wrong").textContent=`Wrong Answers: ${wrongCount}`;
+    gameResult.querySelector(".score").textContent=`Score : ${correctCount*10}`;
+
 }
 
 showQuestion(quesInd);
