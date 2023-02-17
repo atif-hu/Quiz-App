@@ -76,7 +76,7 @@ const submitAnswer=()=>{
             showQuestion(quesInd);
         }
         else alert("Select any option");
-    }
+    }   
 )}
 
 const showResult=()=>{
